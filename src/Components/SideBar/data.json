@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "title": "Your Info",
+    "step": "step 1"
+  },
+  {
+    "id": 2,
+    "title": "Select Plan",
+    "step": "step 2"
+  },
+  {
+    "id": 3,
+    "title": "add-ons",
+    "step": "step 3"
+  },
+  {
+    "id": 4,
+    "title": "summary",
+    "step": "step 4"
+  }
+]

@@ -1,5 +1,42 @@
 .SideBar {
     padding: 1.4em;
     border-radius: 10px;
-    background: url();
+    background: url("../../../public/img/sidebar.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    background-size: cover;
+    padding-bottom: 8em;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    padding: 1.8em;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    column-gap: 1em;
+
+    .numbers {
+        border-radius: 50%;
+        border: 2px solid white;
+        padding: .2em .5em;
+    }
+}
+
+.flex:not(:first-of-type) {
+    margin-top: 1.5em;
+}
+
+.block {
+    line-height: .3;
+
+    h2 {
+        text-transform: uppercase;
+        font-size: 1.3rem;
+    }
 }

@@ -2,5 +2,6 @@
     background-color: white;
     padding: 1.4em;
     border-radius: 10px;
+    display: flex;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
