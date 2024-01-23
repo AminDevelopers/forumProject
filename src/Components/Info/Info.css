@@ -40,6 +40,7 @@
     font-weight: 600;
     display: flex;
     align-items: center;
+    column-gap: .4em;
 }
 
 input {
@@ -64,4 +65,8 @@ input {
     font-weight: 700;
     border: none;
     cursor: pointer;
+}
+
+.btn button:active {
+    background-color: hsl(213, 100%, 23%);
 }

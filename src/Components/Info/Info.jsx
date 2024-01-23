@@ -1,8 +1,28 @@
 import React, { useState } from "react";
 import "./Info.css";
 
-export default function Info() {
+export default function Info(props) {
+  // input value
   const [inputValue, setInputValue] = useState("");
+  const [inputValueOne, setInputValueOne] = useState("");
+  const [inputValueTwo, setInputValueTwo] = useState("");
+
+  const myInput = (e) => {
+    setInputValue(e.target.value);
+  };
+  const myInputOne = (e) => {
+    setInputValueOne(e.target.value);
+  };
+  const myInputTwo = (e) => {
+    setInputValueTwo(e.target.value);
+  };
+
+  const change = () => {
+    if (inputValue !== "" && inputValueOne !== "" && inputValueTwo !== "") {
+      props.setStep1(false);
+      props.setStep2(true);
+    }
+  };
 
   return (
     <div className="Info">
@@ -14,27 +34,31 @@ export default function Info() {
         <div className="inputItem">
           <div className="inputValue">
             <p>Your name is:</p>
-            <p> {inputValue} </p>
+            <p>{inputValue} </p>
           </div>
-          <input type="text" placeholder="Vingt-Six" />
+          <input onChange={myInput} type="text" placeholder="Vingt-Six" />
         </div>
         <div className="inputItem">
           <div className="inputValue">
             <p>Your email is:</p>
-            <p> {inputValue} </p>
+            <p> {inputValueOne} </p>
           </div>
-          <input type="email" placeholder="example@hotmail.com" />
+          <input
+            onChange={myInputOne}
+            type="email"
+            placeholder="example@hotmail.com"
+          />
         </div>
         <div className="inputItem">
           <div className="inputValue">
             <p>Your phone number is:</p>
-            <p> {inputValue} </p>
+            <p> {inputValueTwo} </p>
           </div>
-          <input type="tel" placeholder="+32498763258" />
+          <input onChange={myInputTwo} type="tel" placeholder="+32498763258" />
         </div>
       </div>
       <div className="btn">
-        <button>next step</button>
+        <button onClick={change}>next step</button>
       </div>
     </div>
   );
