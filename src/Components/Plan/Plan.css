@@ -1,4 +1,56 @@
 .Plan {
     padding-block: 3.5em;
-    margin-inline: 4.5em;
+    margin-left: 4.5em;
+    margin-right: 4.2em;
+}
+
+.cards {
+    display: flex;
+    margin-top: 2.3em;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.card {
+    padding: 1em;
+    cursor: pointer;
+    width: 150px;
+    border-radius: 20px;
+    border: 2px solid lightgrey;
+}
+
+.card>* {
+    padding: 0;
+    margin: 0;
+}
+
+.price {
+    display: flex;
+    align-items: center;
+    column-gap: .2em;
+}
+
+.card h4 {
+    color: hsl(213, 96%, 18%);
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.card p {
+    font-weight: 800;
+    color: lightgrey;
+}
+
+.effetCard {
+    border-color: hsl(228, 100%, 84%);
+    background-color: rgba(211, 211, 211, 0.276);
+}
+
+.info h4 {
+    margin-bottom: 0;
+    margin-top: 40px;
+}
+
+.info p {
+    margin-top: 0;
 }
