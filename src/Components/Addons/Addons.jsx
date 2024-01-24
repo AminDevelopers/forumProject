@@ -10,11 +10,39 @@ export default function Addons({ currentStep, setCurrentStep }) {
     setCurrentStep(currentStep - 1);
   };
 
+  const data = [
+    {
+      title: "Online service",
+      subtitle: "Acces to multiplayer games",
+    },
+    {
+      title: "Larger storage",
+      subtitle: "Extra 1TB of cloud save",
+    },
+    {
+      title: "Customizable Profile",
+      subtitle: "Custom theme on your profile",
+    },
+  ];
+
   return (
     <div className="Addons">
       <div className="top">
         <h1>Pick add-ons </h1>
         <p>Add-ons help enhance your gaming experience.</p>
+      </div>
+      <div className="adds">
+        {data.map((element, index) => {
+          return (
+            <div key={index} className="item">
+              <input type="checkbox" className="check" />
+              <div className="block">
+                <h3> {element.title} </h3>
+                <p> {element.subtitle} </p>
+              </div>
+            </div>
+          );
+        })}
       </div>
       <div className="btn">
         <button id="firstBtnd" onClick={changeMines}>

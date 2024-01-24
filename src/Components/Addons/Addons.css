@@ -14,6 +14,47 @@
     }
 }
 
+
+.adds {
+    margin-top: 2.3em;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.4em;
+}
+
+.item {
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    border: 2px solid rgba(211, 211, 211, 0.457);
+    padding: .3em 1.4em;
+}
+
+.item:hover {
+    border-color: hsl(243, 74%, 71%);
+    cursor: pointer;
+    transition: border 100ms ease-in-out;
+}
+
+.block {
+    line-height: .5;
+}
+
+.block h3 {
+    color: hsl(213, 96%, 18%);
+    font-weight: 700;
+}
+
+.block p {
+    color: lightgrey;
+    font-weight: 500;
+}
+
+input[type=checkbox] {
+    accent-color: hsl(243, 74%, 71%);
+    margin-right: 1.4em;
+}
+
 .btn {
     display: flex;
     align-items: center;
