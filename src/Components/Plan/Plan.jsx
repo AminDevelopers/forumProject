@@ -5,27 +5,6 @@ import advenced from "../../img/advenced.svg";
 import pro from "../../img/pro.svg";
 
 export default function Plan({ setCurrentStep, currentStep, form, setForm }) {
-  const savePlan = (plan) => {
-    if (form.billingMonth) {
-      setForm({
-        ...form,
-        plan: { name: plan.title, price: plan.priceMonth },
-      });
-    } else if (form.billingYear) {
-      setForm({
-        ...form,
-        plan: { name: plan.title, price: plan.priceYear },
-      });
-    }
-  };
-
-  const changePlus = () => {
-    setCurrentStep(currentStep + 1);
-  };
-  const changeMines = () => {
-    setCurrentStep(currentStep - 1);
-  };
-
   const data = [
     {
       id: 1,
@@ -50,6 +29,30 @@ export default function Plan({ setCurrentStep, currentStep, form, setForm }) {
     },
   ];
 
+  const [billingPeriod, setBillingPeriod] = useState("monthly");
+
+  const savePlan = (plan) => {
+    const price =
+      billingPeriod === "monthly" ? plan.priceMonth : plan.priceYear;
+
+    setForm({
+      ...form,
+      plan: { name: plan.title, price: price },
+    });
+  };
+
+  const changePlus = () => {
+    setCurrentStep(currentStep + 1);
+  };
+
+  const changeMines = () => {
+    setCurrentStep(currentStep - 1);
+  };
+
+  const toggleBillingPeriod = () => {
+    setBillingPeriod(billingPeriod === "monthly" ? "yearly" : "monthly");
+  };
+
   return (
     <div className="Plan">
       <div className="top">
@@ -65,11 +68,10 @@ export default function Plan({ setCurrentStep, currentStep, form, setForm }) {
                 <h4> {element.title} </h4>
                 <div className="price">
                   <p>
-                    {form.billingMonth
+                    {billingPeriod === "monthly"
                       ? `$${element.priceMonth}/mo`
                       : `$${element.priceYear}/yr`}
                   </p>
-                  <p></p>
                 </div>
               </div>
             </div>
@@ -77,11 +79,21 @@ export default function Plan({ setCurrentStep, currentStep, form, setForm }) {
         })}
       </div>
       <div className="switch">
-        <p>monthly</p>
-        <div className="switchBtn">
-          <div className="circle"></div>
+        <p
+          onClick={() => setBillingPeriod("monthly")}
+          className={billingPeriod === "monthly" ? "active" : ""}
+        >
+          monthly
+        </p>
+        <div className="switchBtn" onClick={toggleBillingPeriod}>
+          <div className={`circle ${billingPeriod}`} />
         </div>
-        <p>yearly</p>
+        <p
+          onClick={() => setBillingPeriod("yearly")}
+          className={billingPeriod === "yearly" ? "active" : ""}
+        >
+          yearly
+        </p>
       </div>
       <div className="btn">
         <button id="firstBtnd" onClick={changeMines}>
