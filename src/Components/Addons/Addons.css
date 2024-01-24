@@ -1,0 +1,21 @@
+.Addons {
+    padding-block: 3.5em;
+    margin-left: 4.5em;
+    margin-right: 4.2em;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    line-height: .3;
+
+    h1 {
+        color: hsl(213, 96%, 18%);
+    }
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

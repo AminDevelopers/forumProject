@@ -103,3 +103,17 @@
     align-items: center;
     justify-content: space-between;
 }
+
+.active {
+    color: hsl(213, 96%, 18%) !important;
+}
+
+.yearly {
+    transform: translateX(30px);
+    transition: all 200ms ease-in-out;
+}
+
+.monthly {
+    left: 0 !important;
+    transition: all 200ms ease-in-out;
+}

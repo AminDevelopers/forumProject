@@ -3,6 +3,7 @@ import "./Display.css";
 import SideBar from "../SideBar/SideBar";
 import Info from "../Info/Info";
 import Plan from "../Plan/Plan";
+import Addons from "../Addons/Addons";
 
 export default function Display({ data }) {
   const [currentStep, setCurrentStep] = useState(0);
@@ -30,6 +31,10 @@ export default function Display({ data }) {
         setCurrentStep={setCurrentStep}
         currentStep={currentStep}
       />
+    );
+  } else if (currentStep === 2) {
+    displayStep = (
+      <Addons currentStep={currentStep} setCurrentStep={setCurrentStep} />
     );
   }
 

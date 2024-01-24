@@ -50,7 +50,9 @@ export default function Plan({ setCurrentStep, currentStep, form, setForm }) {
   };
 
   const toggleBillingPeriod = () => {
-    setBillingPeriod(billingPeriod === "monthly" ? "yearly" : "monthly");
+    setBillingPeriod((prevBillingPeriod) =>
+      prevBillingPeriod === "monthly" ? "yearly" : "monthly"
+    );
   };
 
   return (
@@ -86,7 +88,11 @@ export default function Plan({ setCurrentStep, currentStep, form, setForm }) {
           monthly
         </p>
         <div className="switchBtn" onClick={toggleBillingPeriod}>
-          <div className={`circle ${billingPeriod}`} />
+          <div
+            className={`circle ${
+              billingPeriod === "monthly" ? "monthly" : "yearly"
+            }`}
+          />
         </div>
         <p
           onClick={() => setBillingPeriod("yearly")}
