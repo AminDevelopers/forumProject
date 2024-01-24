@@ -1,7 +1,7 @@
 .SideBar {
     padding: 1.4em;
     border-radius: 10px;
-    background: url("../../../public/img/sidebar.svg");
+    background: url("../../img/sidebar.svg");
     background-position: center;
     background-repeat: no-repeat;
     color: white;

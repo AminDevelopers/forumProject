@@ -5,24 +5,38 @@ import Info from "../Info/Info";
 import Plan from "../Plan/Plan";
 
 export default function Display({ data }) {
-  const [step1, setStep1] = useState(true);
-  const [step2, setStep2] = useState(false);
-  const [time, setTime] = useState("monthly");
-  const [miniCard, setMiniCard] = useState("");
+  const [currentStep, setCurrentStep] = useState(0);
+
+  const [form, setForm] = useState([
+    {
+      plan: {},
+      options: [],
+      billingMonth: true,
+      billingYear: false,
+    },
+  ]);
+
+  let displayStep;
+
+  if (currentStep === 0) {
+    displayStep = (
+      <Info setCurrentStep={setCurrentStep} currentStep={currentStep} />
+    );
+  } else if (currentStep === 1) {
+    displayStep = (
+      <Plan
+        form={form}
+        setForm={setForm}
+        setCurrentStep={setCurrentStep}
+        currentStep={currentStep}
+      />
+    );
+  }
 
   return (
     <div className="Display">
       <SideBar data={data} />
-      {step1 ? <Info setStep1={setStep1} setStep2={setStep2} /> : null}
-      {step2 ? (
-        <Plan
-          setTime={setTime}
-          time={time}
-          miniCard={miniCard}
-          setMiniCard={setMiniCard}
-          setStep2={setStep2}
-        />
-      ) : null}
+      {displayStep}
     </div>
   );
 }

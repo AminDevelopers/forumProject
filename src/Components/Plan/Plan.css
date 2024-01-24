@@ -54,3 +54,52 @@
 .info p {
     margin-top: 0;
 }
+
+
+.switch {
+    background: hsla(228, 100%, 84%, 0.42);
+    margin-top: 2em;
+    padding-inline: 1.4em;
+    padding-inline: 4em;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.switch p {
+    color: white;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.switchBtn {
+    position: relative;
+    background-color: hsl(213, 96%, 18%);
+    border-radius: 50px;
+    width: 55px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.circle {
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 25px;
+    height: 25px;
+}
+
+.switchContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

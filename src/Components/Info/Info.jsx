@@ -19,8 +19,7 @@ export default function Info(props) {
 
   const change = () => {
     if (inputValue !== "" && inputValueOne !== "" && inputValueTwo !== "") {
-      props.setStep1(false);
-      props.setStep2(true);
+      props.setCurrentStep(props.currentStep + 1);
     }
   };
 
