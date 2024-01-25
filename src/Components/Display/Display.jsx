@@ -4,6 +4,7 @@ import SideBar from "../SideBar/SideBar";
 import Info from "../Info/Info";
 import Plan from "../Plan/Plan";
 import Addons from "../Addons/Addons";
+import Summary from "../Summary/Summary";
 
 export default function Display({ data }) {
   const [currentStep, setCurrentStep] = useState(0);
@@ -16,6 +17,8 @@ export default function Display({ data }) {
       billingYear: false,
     },
   ]);
+
+  const [selectedPlan] = useState(null);
 
   let displayStep;
 
@@ -34,7 +37,16 @@ export default function Display({ data }) {
     );
   } else if (currentStep === 2) {
     displayStep = (
-      <Addons currentStep={currentStep} setCurrentStep={setCurrentStep} />
+      <Addons
+        setSelectedPlan={selectedPlan}
+        selectedPlan={selectedPlan}
+        currentStep={currentStep}
+        setCurrentStep={setCurrentStep}
+      />
+    );
+  } else if (currentStep === 3) {
+    displayStep = (
+      <Summary currentStep={currentStep} setCurrentStep={setCurrentStep} />
     );
   }
 

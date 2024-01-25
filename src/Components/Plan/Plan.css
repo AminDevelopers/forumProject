@@ -41,10 +41,6 @@
     color: lightgrey;
 }
 
-.effetCard {
-    border-color: hsl(228, 100%, 84%);
-    background-color: rgba(211, 211, 211, 0.276);
-}
 
 .info h4 {
     margin-bottom: 0;
@@ -116,4 +112,9 @@
 .monthly {
     left: 0 !important;
     transition: all 200ms ease-in-out;
+}
+
+.selected {
+    border-color: hsl(228, 100%, 84%);
+    background-color: rgba(211, 211, 211, 0.276);
 }

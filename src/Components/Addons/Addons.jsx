@@ -27,7 +27,7 @@ export default function Addons({ currentStep, setCurrentStep }) {
 
   return (
     <div className="Addons">
-      <div className="top">
+      <div className="topAddons">
         <h1>Pick add-ons </h1>
         <p>Add-ons help enhance your gaming experience.</p>
       </div>
@@ -38,7 +38,10 @@ export default function Addons({ currentStep, setCurrentStep }) {
               <input type="checkbox" className="check" />
               <div className="block">
                 <h3> {element.title} </h3>
-                <p> {element.subtitle} </p>
+                <p> {element.subtitle}</p>
+              </div>
+              <div className="addPrice">
+                <p></p>
               </div>
             </div>
           );

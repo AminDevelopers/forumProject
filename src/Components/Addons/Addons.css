@@ -1,11 +1,12 @@
 .Addons {
-    padding-block: 3.5em;
+    padding-block: 1.5em;
     margin-left: 4.5em;
     margin-right: 4.2em;
 }
 
-.top {
+.topAddons {
     display: flex;
+    padding-right: 7.5em;
     flex-direction: column;
     line-height: .3;
 
@@ -38,6 +39,7 @@
 
 .block {
     line-height: .5;
+    flex: 1;
 }
 
 .block h3 {
@@ -55,8 +57,14 @@ input[type=checkbox] {
     margin-right: 1.4em;
 }
 
+
 .btn {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.addPrice p {
+    color: hsl(243, 74%, 71%);
+    font-weight: 600;
 }

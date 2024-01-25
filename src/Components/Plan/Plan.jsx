@@ -31,6 +31,8 @@ export default function Plan({ setCurrentStep, currentStep, form, setForm }) {
 
   const [billingPeriod, setBillingPeriod] = useState("monthly");
 
+  const [selectedPlan, setSelectedPlan] = useState(null);
+
   const savePlan = (plan) => {
     const price =
       billingPeriod === "monthly" ? plan.priceMonth : plan.priceYear;
@@ -39,6 +41,7 @@ export default function Plan({ setCurrentStep, currentStep, form, setForm }) {
       ...form,
       plan: { name: plan.title, price: price },
     });
+    setSelectedPlan(plan.id);
   };
 
   const changePlus = () => {
@@ -59,12 +62,18 @@ export default function Plan({ setCurrentStep, currentStep, form, setForm }) {
     <div className="Plan">
       <div className="top">
         <h1>Select your plan</h1>
-        <p>you have the option of monthlt or yearly billing.</p>
+        <p>you have the option of monthly or yearly billing.</p>
       </div>
       <div className="cards">
         {data.map((element, index) => {
           return (
-            <div key={index} className="card">
+            <div
+              key={index}
+              className={`card ${
+                selectedPlan === element.id ? "selected" : ""
+              }`}
+              onClick={() => savePlan(element)}
+            >
               <img src={element.image} alt={element.image} />
               <div className="info">
                 <h4> {element.title} </h4>
@@ -81,12 +90,7 @@ export default function Plan({ setCurrentStep, currentStep, form, setForm }) {
         })}
       </div>
       <div className="switch">
-        <p
-          onClick={() => setBillingPeriod("monthly")}
-          className={billingPeriod === "monthly" ? "active" : ""}
-        >
-          monthly
-        </p>
+        <p className={billingPeriod === "monthly" ? "active" : ""}>monthly</p>
         <div className="switchBtn" onClick={toggleBillingPeriod}>
           <div
             className={`circle ${
@@ -94,12 +98,7 @@ export default function Plan({ setCurrentStep, currentStep, form, setForm }) {
             }`}
           />
         </div>
-        <p
-          onClick={() => setBillingPeriod("yearly")}
-          className={billingPeriod === "yearly" ? "active" : ""}
-        >
-          yearly
-        </p>
+        <p className={billingPeriod === "yearly" ? "active" : ""}>yearly</p>
       </div>
       <div className="btn">
         <button id="firstBtnd" onClick={changeMines}>
