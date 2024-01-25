@@ -1,5 +1,5 @@
 .Addons {
-    padding-block: 1.5em;
+    padding-block: 3.5em;
     margin-left: 4.5em;
     margin-right: 4.2em;
 }
@@ -13,6 +13,10 @@
     h1 {
         color: hsl(213, 96%, 18%);
     }
+}
+
+.topAddons p {
+    color: lightgrey;
 }
 
 

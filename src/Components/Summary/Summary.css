@@ -1,0 +1,36 @@
+.Summary {
+    padding-block: 3.5em;
+    margin-left: 4.5em;
+    margin-right: 4.2em;
+}
+
+.topSummary {
+    display: flex;
+    padding-right: 7.5em;
+    flex-direction: column;
+    line-height: .3;
+
+    h1 {
+        color: hsl(213, 96%, 18%);
+    }
+}
+
+.topSummary p {
+    color: lightgrey;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.finish {
+    background-color: hsla(228, 100%, 84%, 0.466);
+    padding: 1.4em;
+    margin-top: 2.3em;
+}
+
+#secondBtnSummary {
+    background-color: hsl(243, 100%, 62%);
+}
