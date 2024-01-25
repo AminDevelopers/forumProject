@@ -1,0 +1,24 @@
+.Thanks {
+    display: grid;
+    place-content: center;
+    padding-block: 3.5em;
+    margin-inline: 4.5em;
+}
+
+.thanksContent {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.thanksContent h1 {
+    color: hsl(213, 96%, 18%);
+    text-transform: capitalize;
+}
+
+.thanksContent p {
+    color: lightgrey;
+    text-align: center;
+    width: 500px;
+}

@@ -5,6 +5,7 @@ import Info from "../Info/Info";
 import Plan from "../Plan/Plan";
 import Addons from "../Addons/Addons";
 import Summary from "../Summary/Summary";
+import Thanks from "../Thanks/Thanks";
 
 export default function Display({ data }) {
   const [currentStep, setCurrentStep] = useState(0);
@@ -48,6 +49,8 @@ export default function Display({ data }) {
     displayStep = (
       <Summary currentStep={currentStep} setCurrentStep={setCurrentStep} />
     );
+  } else if (currentStep === 4) {
+    displayStep = <Thanks />;
   }
 
   return (
