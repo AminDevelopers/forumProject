@@ -69,3 +69,9 @@
 .addons {
     color: #11111178;
 }
+
+.addon {
+    display: flex;
+    align-items: center;
+    column-gap: .4em;
+}

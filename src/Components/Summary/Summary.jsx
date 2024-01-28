@@ -10,6 +10,8 @@ export default function Summary({ form, currentStep, setCurrentStep }) {
     setCurrentStep(currentStep - 1);
   };
 
+  const totalWithAddons = form.plan.price + form.addonsTotalPrice;
+
   return (
     <div className="Summary">
       <div className="topSummary">
@@ -24,14 +26,21 @@ export default function Summary({ form, currentStep, setCurrentStep }) {
           </p>
           <p className="totalP">${form.plan.price}</p>
         </div>
-        <div className="addons"></div>
+        <div className="addons">
+          {form.addons.map((addon, index) => (
+            <div key={index} className="addon">
+              <p>+ {addon.title}</p>
+              <p className="totalP">${addon.price}</p>
+            </div>
+          ))}
+        </div>
         <p className="change" onClick={changeMines}>
           change
         </p>
         <hr />
         <div className="total">
           <p>Total:</p>
-          <p className="totalP">${form.plan.price}</p>
+          <p className="totalP">${totalWithAddons}</p>
         </div>
       </div>
       <div className="btn">

@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Addons.css";
 
-export default function Addons({ currentStep, setCurrentStep }) {
+export default function Addons({ currentStep, setCurrentStep, setForm, form }) {
+  const [selectedAddons, setSelectedAddons] = useState([]);
+
   const changePlus = () => {
-    setCurrentStep(currentStep + 1);
+    const addonsTotalPrice = selectedAddons.reduce(
+      (total, addon) => total + addon.price,
+      0
+    );
+
+    setSelectedAddons((updatedAddons) => {
+      setForm((prevForm) => ({
+        ...prevForm,
+        addons: updatedAddons,
+        addonsTotalPrice: addonsTotalPrice,
+      }));
+
+      setCurrentStep(currentStep + 1);
+      return updatedAddons;
+    });
   };
 
   const changeMines = () => {
@@ -28,6 +44,20 @@ export default function Addons({ currentStep, setCurrentStep }) {
     },
   ];
 
+  const handleAddonChange = (addon) => {
+    setSelectedAddons((prevAddons) => {
+      const newAddons = prevAddons.some(
+        (selectedAddon) => selectedAddon.title === addon.title
+      )
+        ? prevAddons.filter(
+            (selectedAddon) => selectedAddon.title !== addon.title
+          )
+        : [...prevAddons, addon];
+
+      return newAddons;
+    });
+  };
+
   return (
     <div className="Addons">
       <div className="topAddons">
@@ -38,7 +68,14 @@ export default function Addons({ currentStep, setCurrentStep }) {
         {data.map((element, index) => {
           return (
             <div key={index} className="item">
-              <input type="checkbox" className="check" />
+              <input
+                type="checkbox"
+                className="check"
+                checked={selectedAddons.some(
+                  (addon) => addon.title === element.title
+                )}
+                onChange={() => handleAddonChange(element)}
+              />
               <div className="block">
                 <h3> {element.title} </h3>
                 <p> {element.subtitle}</p>

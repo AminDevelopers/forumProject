@@ -39,8 +39,7 @@ export default function Display({ data }) {
     displayStep = (
       <Addons
         form={form}
-        setForm={setCurrentStep}
-        setSelectedPlan={selectedPlan}
+        setForm={setForm}
         selectedPlan={selectedPlan}
         currentStep={currentStep}
         setCurrentStep={setCurrentStep}
@@ -50,6 +49,7 @@ export default function Display({ data }) {
     displayStep = (
       <Summary
         form={form}
+        setForm={setForm}
         currentStep={currentStep}
         setCurrentStep={setCurrentStep}
       />
