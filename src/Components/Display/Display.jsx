@@ -12,9 +12,8 @@ export default function Display({ data }) {
 
   const [form, setForm] = useState([
     {
-      plan: {},
-      options: [],
-      billingMonth: true,
+      plan: { name: "", price: 0 },
+      billingMonth: false,
       billingYear: false,
     },
   ]);
@@ -39,6 +38,8 @@ export default function Display({ data }) {
   } else if (currentStep === 2) {
     displayStep = (
       <Addons
+        form={form}
+        setForm={setCurrentStep}
         setSelectedPlan={selectedPlan}
         selectedPlan={selectedPlan}
         currentStep={currentStep}
@@ -47,7 +48,11 @@ export default function Display({ data }) {
     );
   } else if (currentStep === 3) {
     displayStep = (
-      <Summary currentStep={currentStep} setCurrentStep={setCurrentStep} />
+      <Summary
+        form={form}
+        currentStep={currentStep}
+        setCurrentStep={setCurrentStep}
+      />
     );
   } else if (currentStep === 4) {
     displayStep = <Thanks />;

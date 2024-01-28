@@ -14,14 +14,17 @@ export default function Addons({ currentStep, setCurrentStep }) {
     {
       title: "Online service",
       subtitle: "Acces to multiplayer games",
+      price: 1,
     },
     {
       title: "Larger storage",
       subtitle: "Extra 1TB of cloud save",
+      price: 2,
     },
     {
       title: "Customizable Profile",
       subtitle: "Custom theme on your profile",
+      price: 3,
     },
   ];
 
@@ -41,7 +44,7 @@ export default function Addons({ currentStep, setCurrentStep }) {
                 <p> {element.subtitle}</p>
               </div>
               <div className="addPrice">
-                <p></p>
+                <p>${element.price}</p>
               </div>
             </div>
           );

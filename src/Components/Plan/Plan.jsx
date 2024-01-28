@@ -4,7 +4,7 @@ import arcade from "../../img/arcade.svg";
 import advenced from "../../img/advenced.svg";
 import pro from "../../img/pro.svg";
 
-export default function Plan({ setCurrentStep, currentStep, form, setForm }) {
+export default function Plan({ setCurrentStep, currentStep, setForm }) {
   const data = [
     {
       id: 1,
@@ -37,10 +37,14 @@ export default function Plan({ setCurrentStep, currentStep, form, setForm }) {
     const price =
       billingPeriod === "monthly" ? plan.priceMonth : plan.priceYear;
 
-    setForm({
-      ...form,
+    setForm((prevForm) => ({
+      ...prevForm,
       plan: { name: plan.title, price: price },
-    });
+      billingMonth: billingPeriod === "monthly",
+      billingYear: billingPeriod === "yearly",
+      addons: [],
+    }));
+
     setSelectedPlan(plan.id);
   };
 
